@@ -19,16 +19,50 @@ function makeGrid(gridContainerSize) {
 }
 makeGrid(gridSize)
 
+// add a button at the top of the screen to clear grid. 
+
+
+// pop up "how many squares per side"
+//prompt defaults to original number 16
+function resize(request) { 
+    if (request === 'resize') {
+    let number = prompt("Please enter desired grid size (must be under 100)", 16);
+    }
+    if (number <= 100) { 
+        makeGrid(number);
+        } else {
+            prompt("Invalid response! Grid size must be under 100!");
+    }
+    
+}
+
+gridContainer.innerHTML = '';
+makeGrid(gridSize);
+
+
 
 // set up a "hover" effect so the grid divs change color when your mouse 
 //passes over them leaving a 'pixelated' trail through your grid like a pen. 
 //hover is happening when it ENTERS AND LEAVES the grid. 
 
+    function gridInk(target) {
+        target.style.backgroundColor = 'black';
+    }
+
+    gridContainer.addEventListener("mouseover", function(event) {
+       target = event.target;
+
+        if (target.matches("div.cell")) {
+            gridInk(target);
+        }
+    });
 
 
 
-// add a button at the top of the screen to clear grid. 
-// pop up "how many squares per side"
+
+
+
+
 
 
 
